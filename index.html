@@ -371,6 +371,7 @@
             const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
             if (generationConfig) payload.generationConfig = generationConfig;
             // const apiKey = ""; // Injected by environment
+            const REACT_APP_GEMINI_API_KEY = "";
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${REACT_APP_GEMINI_API_KEY}`;
             const response = await fetch(apiUrl, {
                 method: 'POST',
