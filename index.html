@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishwas KV - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .skill-card, .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover, .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        #chatbot-container.hidden {
+            transform: scale(0.95);
+            opacity: 0;
+            transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+        }
+        #chatbot-container {
+            transform: scale(1);
+            opacity: 1;
+            transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+        }
+        .starter-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .starter-card:hover {
+            background-color: #eef2ff; /* indigo-50 */
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-40 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900">Vishwas KV</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-gray-600 hover:text-indigo-600 transition-colors">About</a>
+                <a href="#skills" class="text-gray-600 hover:text-indigo-600 transition-colors">Skills</a>
+                <a href="#projects" class="text-gray-600 hover:text-indigo-600 transition-colors">Projects</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition-colors">Contact</a>
+            </div>
+            <a href="#contact" class="hidden md:block bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-all">
+                Get in Touch
+            </a>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-gray-600 hover:text-indigo-600">About</a>
+            <a href="#skills" class="block py-2 text-gray-600 hover:text-indigo-600">Skills</a>
+            <a href="#projects" class="block py-2 text-gray-600 hover:text-indigo-600">Projects</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-indigo-600">Contact</a>
+            <a href="#contact" class="block mt-2 bg-indigo-600 text-white text-center px-4 py-2 rounded-lg hover:bg-indigo-700 transition-all">
+                Get in Touch
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <img src="https://storage.googleapis.com/gemini-prod-us-west1-409903921512-488562723902/profile-pic.jpg" alt="Vishwas KV" class="w-40 h-40 md:w-48 md:h-48 mx-auto rounded-full object-cover shadow-2xl mb-8 border-4 border-indigo-200">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    Hi, I'm Vishwas KV
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                    A passionate Software Engineer specializing in building robust backend systems, cloud solutions, and scalable applications. I thrive on solving complex problems and turning ideas into reality.
+                </p>
+                <div class="mt-8 flex justify-center space-x-4">
+                    <a href="https://github.com/vishwaskv362" target="_blank" class="text-gray-600 hover:text-indigo-600"><i data-lucide="github" class="w-8 h-8"></i></a>
+                    <a href="https://linkedin.com/in/vishwaskv" target="_blank" class="text-gray-600 hover:text-indigo-600"><i data-lucide="linkedin" class="w-8 h-8"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-2/3">
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            I am a Software Engineer at Wells Fargo with a proven track record of developing and managing high-impact software solutions. My experience spans across the full development lifecycle, from designing REST APIs and low-level system architecture to deploying and managing applications in microservices and cloud environments.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            My expertise lies in Python, Django, and FastAPI for backend development, coupled with a strong command of DevOps tools like Docker, Kubernetes, and Jenkins for building efficient CI/CD pipelines. I'm passionate about leveraging cloud platforms like GCP and Azure to build scalable and resilient systems.
+                        </p>
+                         <p class="text-lg text-gray-700 leading-relaxed">
+                            I am a proactive problem-solver, always eager to learn new technologies and contribute to innovative projects. My goal is to use my skills to build software that makes a difference.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 flex justify-center">
+                         <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-sm">
+                            <h3 class="font-bold text-xl mb-4">Quick Facts</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center"><i data-lucide="briefcase" class="w-5 h-5 mr-3 text-indigo-500"></i><span>Software Engineer</span></li>
+                                <li class="flex items-center"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-indigo-500"></i><span>Bangalore, Karnataka</span></li>
+                                <li class="flex items-center"><i data-lucide="mail" class="w-5 h-5 mr-3 text-indigo-500"></i><span>vishwaskv0601@gmail.com</span></li>
+                                <li class="flex items-center"><i data-lucide="award" class="w-5 h-5 mr-3 text-indigo-500"></i><span>GCP Associate Cloud Engineer</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Technical Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-3">Programming Languages</h3><div class="flex flex-wrap gap-2"><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Python</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">JavaScript</span></div></div>
+                    <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-3">Frameworks</h3><div class="flex flex-wrap gap-2"><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Django</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Django REST</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">FastAPI</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Flask</span></div></div>
+                    <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-3">Databases</h3><div class="flex flex-wrap gap-2"><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">SQL</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">MongoDB</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Redis</span></div></div>
+                    <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-3">DevOps</h3><div class="flex flex-wrap gap-2"><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Terraform</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Docker</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Kubernetes</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Jenkins CICD</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Helm</span></div></div>
+                    <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-3">Cloud Platforms</h3><div class="flex flex-wrap gap-2"><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Google Cloud (GCP)</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Microsoft Azure</span></div></div>
+                    <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-3">Big Data</h3><div class="flex flex-wrap gap-2"><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">PySpark</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Kafka</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Hadoop</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Airflow</span><span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">DuckDB</span></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden"><div class="p-6"><h3 class="text-xl font-bold mb-2">FastAPI powered E-Commerce Backend</h3><p class="text-gray-600 mb-4">An e-commerce backend with product management, JWT authentication, and wishlist features for a seamless user experience.</p><div class="flex flex-wrap gap-2"><span class="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-xs">FastAPI</span><span class="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-xs">JWT</span><span class="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-xs">Docker</span><span class="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-xs">PostgreSQL</span></div></div></div>
+                    <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden"><div class="p-6"><h3 class="text-xl font-bold mb-2">Resume Matching with Document AI & Gemini</h3><p class="text-gray-600 mb-4">A Django REST API to match resumes with job descriptions using Google Cloud Document AI for OCR and Gemini for analysis.</p><div class="flex flex-wrap gap-2"><span class="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-xs">Django</span><span class="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-xs">Google Cloud</span><span class="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-xs">Vertex AI</span><span class="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-xs">Docker</span></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">I'm currently open to new opportunities and collaborations. Feel free to reach out if you have a project in mind or just want to connect!</p>
+                <a href="mailto:vishwaskv0601@gmail.com" class="inline-block bg-indigo-600 text-white text-lg font-semibold px-8 py-4 rounded-lg hover:bg-indigo-700 transition-all shadow-md">
+                    Say Hello
+                </a>
+                
+                <!-- Gemini Features Container -->
+                <div class="mt-16 max-w-3xl mx-auto space-y-12">
+                    <!-- Conversation Starters -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-inner">
+                        <h3 class="text-2xl font-bold mb-2">Break the Ice</h3>
+                        <p class="text-gray-600 mb-6">Need a way to start the conversation? Let AI help.</p>
+                        <button id="generate-starters-btn" class="inline-flex items-center justify-center bg-white text-indigo-600 border border-indigo-600 text-md font-semibold px-6 py-3 rounded-lg hover:bg-indigo-50 transition-all shadow-sm disabled:opacity-50">
+                            <span class="mr-2">✨</span>
+                            <span>Generate Conversation Starters</span>
+                            <div id="starters-loader" class="hidden ml-3 w-5 h-5 border-2 border-dashed rounded-full animate-spin border-indigo-600"></div>
+                        </button>
+                        <div id="starters-container" class="mt-6 text-left space-y-3"></div>
+                    </div>
+
+                    <!-- Personalized Pitch Generator -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-inner">
+                        <h3 class="text-2xl font-bold mb-2">See Your Perfect Fit</h3>
+                        <p class="text-gray-600 mb-6">Enter a role and company, and I'll generate a personalized pitch explaining why I'm a great match.</p>
+                        <div class="space-y-4 max-w-lg mx-auto">
+                            <input type="text" id="company-name" placeholder="Enter Company Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <input type="text" id="job-role" placeholder="Enter Job Role (e.g., 'Senior Python Developer')" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <button id="generate-pitch-btn" class="w-full inline-flex items-center justify-center bg-indigo-600 text-white text-md font-semibold px-6 py-3 rounded-lg hover:bg-indigo-700 transition-all shadow-sm disabled:opacity-50">
+                                <span class="mr-2">✨</span>
+                                <span>Generate My Pitch</span>
+                                <div id="pitch-loader" class="hidden ml-3 w-5 h-5 border-2 border-dashed rounded-full animate-spin"></div>
+                            </button>
+                        </div>
+                        <div id="pitch-container" class="mt-6 text-left p-6 bg-white rounded-lg border border-gray-200 shadow-sm min-h-[100px]">
+                             <p class="text-gray-400">Your personalized pitch will appear here...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 flex justify-center space-x-6">
+                    <a href="https://github.com/vishwaskv362" target="_blank" class="text-gray-500 hover:text-indigo-600 transition-colors"><i data-lucide="github" class="w-8 h-8"></i></a>
+                    <a href="https://linkedin.com/in/vishwaskv" target="_blank" class="text-gray-500 hover:text-indigo-600 transition-colors"><i data-lucide="linkedin" class="w-8 h-8"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Vishwas KV. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Gemini Chatbot Widget -->
+    <div id="chatbot-widget" class="fixed bottom-5 right-5 z-50">
+        <button id="chatbot-toggle" class="bg-indigo-600 text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center hover:bg-indigo-700 transition-transform transform hover:scale-110">
+            <i data-lucide="message-circle" class="w-8 h-8"></i>
+        </button>
+    </div>
+
+    <!-- Gemini Chatbot Window -->
+    <div id="chatbot-container" class="hidden fixed bottom-24 right-5 w-full max-w-sm h-[70vh] max-h-[600px] z-50">
+        <div class="bg-white w-full h-full rounded-2xl shadow-2xl flex flex-col">
+            <div class="bg-indigo-600 text-white p-4 rounded-t-2xl flex justify-between items-center">
+                <div><h3 class="font-bold text-lg">AI Assistant</h3><p class="text-sm opacity-80">Ask me anything about Vishwas!</p></div>
+                <button id="chatbot-close" class="text-white hover:opacity-75"><i data-lucide="x" class="w-6 h-6"></i></button>
+            </div>
+            <div id="chat-window" class="flex-1 p-4 overflow-y-auto bg-gray-50">
+                <div class="flex justify-start mb-4"><div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs"><p>Hi there! I'm Vishwas's AI assistant. How can I help you learn more about his work?</p></div></div>
+            </div>
+            <div class="p-4 border-t border-gray-200 bg-white rounded-b-2xl">
+                <div class="flex items-center">
+                    <input type="text" id="chat-input" placeholder="Type your message..." class="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button id="chat-send" class="ml-3 bg-indigo-600 text-white p-2 rounded-full hover:bg-indigo-700"><i data-lucide="send" class="w-5 h-5"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // --- Resume Context for Gemini API ---
+        const resumeContext = `
+            Name: Vishwas KV
+            Title: Software Engineer
+            Summary: A Software Engineer at Wells Fargo with experience in developing and managing software solutions. Skilled in Python, Django, FastAPI, DevOps (Docker, Kubernetes, Jenkins), and cloud platforms (GCP, Azure). Passionate about building scalable and resilient systems.
+            Skills:
+            - Programming Languages: Python, JavaScript
+            - Frameworks: Django, Django REST Framework, FastAPI, Flask
+            - Databases: SQL, PostgreSQL, MongoDB, Redis
+            - DevOps: Terraform, Docker, Kubernetes, Jenkins CICD, Helm
+            - Cloud Platforms: Google Cloud Platform (GCP), Microsoft Azure
+            - Big Data: PySpark, Kafka, Hadoop, Airflow, DuckDB
+            Experience:
+            - Software Engineer at Wells Fargo (Aug 2022 - Present): Developed Django applications, designed REST APIs, worked on Kafka-based notification systems, containerized applications with Docker and OpenShift, and developed Airflow DAGs.
+            - Azure DevOps Intern at Hitachi Vantara (Jan 2022 - Jul 2022): Set up CI/CD pipelines, created Docker containers, and deployed to Azure Kubernetes Service (AKS).
+            Projects:
+            1. FastAPI powered E-Commerce Backend: Built an e-commerce backend using FastAPI, JWT, Docker, and PostgreSQL.
+            2. Django-Based Resume Matching with Document AI and Gemini AI: Built a Django REST API to match resumes with job descriptions using Google Cloud Document AI and Gemini.
+            Certifications:
+            - Google Cloud Certified Associate Cloud Engineer
+        `;
+
+        // --- Mobile Menu Logic ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // --- Chatbot UI Logic ---
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatbotClose = document.getElementById('chatbot-close');
+        chatbotToggle.addEventListener('click', () => chatbotContainer.classList.toggle('hidden'));
+        chatbotClose.addEventListener('click', () => chatbotContainer.classList.add('hidden'));
+
+        // --- Gemini Chatbot Core Logic ---
+        const chatWindow = document.getElementById('chat-window');
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+        let chatHistory = [];
+
+        async function handleSendMessage() {
+            const userInput = chatInput.value.trim();
+            if (!userInput) return;
+            appendMessage(userInput, 'user');
+            chatInput.value = '';
+            appendTypingIndicator();
+            try {
+                const prompt = `You are a friendly AI assistant for Vishwas KV's portfolio. Answer questions about his skills, experience, and projects based on this context. If asked for contact details, provide his email (vishwaskv0601@gmail.com) and LinkedIn (linkedin.com/in/vishwaskv). Keep answers concise.\n\nContext:\n${resumeContext}\n\n---\n\nChat History:\n${JSON.stringify(chatHistory)}\n\nUser Question: "${userInput}"\n\nAnswer:`;
+                const botResponse = await callGemini(prompt);
+                removeTypingIndicator();
+                appendMessage(botResponse, 'bot');
+                chatHistory.push({ role: "user", parts: [{ text: userInput }] });
+                chatHistory.push({ role: "model", parts: [{ text: botResponse }] });
+            } catch (error) {
+                handleApiError(error);
+            }
+        }
+        chatSend.addEventListener('click', handleSendMessage);
+        chatInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleSendMessage(); });
+
+        // --- Gemini Conversation Starter Logic ---
+        const generateStartersBtn = document.getElementById('generate-starters-btn');
+        const startersLoader = document.getElementById('starters-loader');
+        const startersContainer = document.getElementById('starters-container');
+
+        async function handleGenerateStarters() {
+            startersLoader.classList.remove('hidden');
+            generateStartersBtn.disabled = true;
+            startersContainer.innerHTML = '<p class="text-gray-500 text-center">✨ Generating ideas...</p>';
+            try {
+                const prompt = `You are an expert career coach. Based on Vishwas KV's professional profile, generate 3 unique, insightful conversation starters for a recruiter. Frame them as questions or interesting observations. Profile:\n${resumeContext}`;
+                const generationConfig = {
+                    responseMimeType: "application/json",
+                    responseSchema: { type: "OBJECT", properties: { starters: { type: "ARRAY", items: { type: "STRING" } } }, required: ["starters"] }
+                };
+                const jsonResponse = await callGemini(prompt, generationConfig);
+                const { starters } = JSON.parse(jsonResponse);
+                startersContainer.innerHTML = '';
+                starters.forEach(starter => {
+                    const starterEl = document.createElement('div');
+                    starterEl.className = 'starter-card p-4 border border-gray-200 rounded-lg flex items-start gap-3 bg-white';
+                    starterEl.innerHTML = `<i data-lucide="message-square" class="w-5 h-5 text-indigo-500 mt-1 flex-shrink-0"></i><p class="text-gray-700">${starter}</p>`;
+                    startersContainer.appendChild(starterEl);
+                });
+                lucide.createIcons();
+            } catch (error) {
+                handleApiError(error);
+                startersContainer.innerHTML = '<p class="text-red-500 text-center">Sorry, couldn\'t generate starters right now.</p>';
+            } finally {
+                startersLoader.classList.add('hidden');
+                generateStartersBtn.disabled = false;
+            }
+        }
+        generateStartersBtn.addEventListener('click', handleGenerateStarters);
+
+        // --- Gemini Personalized Pitch Logic ---
+        const generatePitchBtn = document.getElementById('generate-pitch-btn');
+        const pitchLoader = document.getElementById('pitch-loader');
+        const pitchContainer = document.getElementById('pitch-container');
+        const companyNameInput = document.getElementById('company-name');
+        const jobRoleInput = document.getElementById('job-role');
+
+        async function handleGeneratePitch() {
+            const companyName = companyNameInput.value.trim();
+            const jobRole = jobRoleInput.value.trim();
+
+            if (!companyName || !jobRole) {
+                pitchContainer.innerHTML = '<p class="text-red-500">Please enter both a company name and a job role.</p>';
+                return;
+            }
+
+            pitchLoader.classList.remove('hidden');
+            generatePitchBtn.disabled = true;
+            pitchContainer.innerHTML = '<p class="text-gray-500">✨ Crafting your personalized pitch...</p>';
+
+            try {
+                const prompt = `You are an expert career advisor writing a brief, compelling pitch for Vishwas KV. Based on his profile, explain why he is an excellent fit for the '${jobRole}' position at '${companyName}'. Directly connect his specific skills (like Python, Django, GCP, Docker) and experiences (like building REST APIs at Wells Fargo) to the needs of the role. Keep it professional, confident, and concise (about 3-4 sentences).\n\nVishwas's Profile:\n${resumeContext}`;
+                const pitch = await callGemini(prompt);
+                pitchContainer.innerHTML = `<p class="text-gray-800">${pitch}</p>`;
+            } catch (error) {
+                handleApiError(error);
+                pitchContainer.innerHTML = '<p class="text-red-500">Sorry, couldn\'t generate the pitch right now.</p>';
+            } finally {
+                pitchLoader.classList.add('hidden');
+                generatePitchBtn.disabled = false;
+            }
+        }
+        generatePitchBtn.addEventListener('click', handleGeneratePitch);
+
+        // --- Reusable Helper Functions ---
+        async function callGemini(prompt, generationConfig = null) {
+            const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+            if (generationConfig) payload.generationConfig = generationConfig;
+            // const apiKey = ""; // Injected by environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${REACT_APP_GEMINI_API_KEY}`;
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (!response.ok) throw new Error(`API request failed: ${response.status}`);
+            const result = await response.json();
+            if (result.candidates && result.candidates[0]?.content?.parts[0]?.text) {
+                return result.candidates[0].content.parts[0].text;
+            } else {
+                throw new Error("Invalid API response structure.");
+            }
+        }
+
+        function handleApiError(error) {
+            console.error('Error calling Gemini API:', error);
+            removeTypingIndicator();
+            appendMessage("Sorry, I'm having trouble connecting. Please try again in a moment.", 'bot');
+        }
+
+        function appendMessage(message, sender) {
+            const messageDiv = document.createElement('div');
+            const alignment = sender === 'user' ? 'justify-end' : 'justify-start';
+            const bgColor = sender === 'user' ? 'bg-indigo-500 text-white' : 'bg-gray-200 text-gray-800';
+            messageDiv.className = `flex ${alignment} mb-4`;
+            messageDiv.innerHTML = `<div class="${bgColor} p-3 rounded-lg max-w-xs break-words">${message}</div>`;
+            chatWindow.appendChild(messageDiv);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        function appendTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typing-indicator';
+            typingDiv.className = 'flex justify-start mb-4';
+            typingDiv.innerHTML = `<div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs flex items-center"><span class="animate-pulse">●</span><span class="animate-pulse delay-75">●</span><span class="animate-pulse delay-150">●</span></div>`;
+            chatWindow.appendChild(typingDiv);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) typingIndicator.remove();
+        }
+    </script>
+</body>
+</html>
